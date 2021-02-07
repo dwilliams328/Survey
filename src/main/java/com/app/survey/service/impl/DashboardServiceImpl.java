@@ -13,6 +13,11 @@ public class DashboardServiceImpl implements DashboardService {
     @Autowired
     RatingRepository ratingRepository;
 
+
+//    public DashboardServiceImpl(RatingRepository ratingRepository) {
+//        this.ratingRepository = ratingRepository;
+//    }
+
     public List<Rating> getAllRating(){
         return ratingRepository.findAll();
     }

@@ -1,9 +1,6 @@
 package com.app.survey.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Rating {
@@ -11,6 +8,18 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String rating;
+
+    public Rating(){
+    }
+
+    public Rating(String rating) {
+        this.rating = rating;
+    }
+
+    public Rating(String id, String rating) {
+        this.id = id;
+        this.rating = rating;
+    }
 
     public String getId() {
         return id;
@@ -26,5 +35,13 @@ public class Rating {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "id='" + id + '\'' +
+                ", rating='" + rating + '\'' +
+                '}';
     }
 }
