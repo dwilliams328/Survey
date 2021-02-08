@@ -16,11 +16,6 @@ public class Rating {
         this.rating = rating;
     }
 
-    public Rating(String id, String rating) {
-        this.id = id;
-        this.rating = rating;
-    }
-
     public String getId() {
         return id;
     }
