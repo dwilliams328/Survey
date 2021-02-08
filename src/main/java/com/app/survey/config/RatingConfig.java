@@ -13,6 +13,7 @@ import java.util.List;
 @Configuration
 public class RatingConfig implements CommandLineRunner{
 
+    @Autowired
     DashboardServiceImpl repository;
 
     @Override
@@ -23,12 +24,14 @@ public class RatingConfig implements CommandLineRunner{
 
     }
 
-    CommandLineRunner commandLineRunner(DashboardServiceImpl repository){
-        return args -> {Rating two = new Rating("Two");
-                        Rating three = new Rating("Three");
+    @Bean
+    List<Rating> commandLineRunner(DashboardServiceImpl repository){
+        Rating two = new Rating("Two");
+        Rating three = new Rating("Three");
+            repository.addRating(two);
+            repository.addRating(three);
+            List.of(two,three);
 
-                        repository.addRating(two);
-                        repository.addRating(three);
-        };
+            return List.of(two,three);
     }
 }
