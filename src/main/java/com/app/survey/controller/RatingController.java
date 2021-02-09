@@ -18,8 +18,6 @@ public class RatingController {
     @GetMapping("/")
     public List<Rating> getRating(){
         return dashboardServiceImpl.getAllRating();
-
-
     }
 
     @PostMapping
@@ -27,6 +25,8 @@ public class RatingController {
         dashboardServiceImpl.addRating(rating);
     }
 
-
-
+    @DeleteMapping(path = "{id}")
+    public void deleteRating(@PathVariable("id") Long id ){
+        dashboardServiceImpl.deleteRating(id);
+    }
 }

@@ -26,4 +26,12 @@ public class DashboardServiceImpl implements DashboardService {
     public void addRating(Rating rating) {
         ratingRepository.save(rating);
     }
+
+    public void deleteRating(Long id) {
+        boolean exists = ratingRepository.existsById(id);
+        if(!exists){
+            throw new IllegalStateException("rating id " + id + " does not exist!");
+        }
+        ratingRepository.deleteById(id);
+    }
 }
