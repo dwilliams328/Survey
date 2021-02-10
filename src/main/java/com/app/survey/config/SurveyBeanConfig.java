@@ -21,6 +21,7 @@ public class SurveyBeanConfig implements CommandLineRunner{
 
     }
 
+    //Uncomment to manually create spring bean for declared object(s).
 //    @Bean
     List<Rating> ratingConfig(DashboardServiceImpl repository){
         Rating two = new Rating("Two");

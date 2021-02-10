@@ -29,4 +29,10 @@ public class RatingController {
     public void deleteRating(@PathVariable("id") Long id ){
         dashboardServiceImpl.deleteRating(id);
     }
+
+    @PutMapping(path = "{id}")
+    public void updateRating(@PathVariable("id") Long id,
+                             @RequestParam(required = false) String rating){
+        dashboardServiceImpl.updateRating(id,rating);
+    }
 }
